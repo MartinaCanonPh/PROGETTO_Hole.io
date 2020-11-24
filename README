@@ -1,0 +1,9 @@
+#Hole.io
+##Artificial Inteligence, Universitary Projecct.
+###Using Java Swing, Awt and EmbASP.
+Canonaco Martina & Iaconantonio Alessia.
+
+###Instructions for Use:
+- Select a mode to play (Level1, Level2, AI mode) or just Play.
+- Use the keyboard arrow to move the hole and eat all the items in the map.
+- Press '0' while playing to switch to the ai mode.

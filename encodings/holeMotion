@@ -1,0 +1,61 @@
+%hole.io encoding ASP program
+%the constant 4 stands for the variable speed in the class HoleLogic.
+down(X, Y+4) | up(X, Y-4)| left(X-4, Y) | right(X+4, Y)  :- hole(X,Y).
+%
+:-brick(X,Y), down(X,Y).
+:-brick(X,Y), up(X,Y).
+:-brick(X,Y), left(X,Y).
+:-brick(X,Y), right(X,Y).
+%
+%rules and constraints to avoid the loop checking previous positions
+posPrec(A,B) :- hole(X,B), right(X,B), A = X-1.
+posPrec(A,B) :- hole(X,B), left(X,B), A = X+1.
+posPrec(X,Y) :- hole(X,B), up(X,B), Y = B+1.
+posPrec(X,Y) :- hole(X,B), down(X,B), Y = B-1.
+%
+%
+:- posPrec(X,Y), right(X,Y).
+:- posPrec(X,Y), left (X,Y).
+:- posPrec(X,Y), up(X,Y).
+:- posPrec(X,Y), down(X,Y).
+%
+%%after going down
+distFromItem(Z) :- down(A,B), item(C,D), E = A-C, F = B-D, Z = E+F, E>=0, F>=0.
+distFromItem(Z) :- down(A,B), item(C,D), E = C-A, F = B-D, Z = E+F, E>=0, F>=0.
+distFromItem(Z) :- down(A,B), item(C,D), E = A-C, F = D-B, Z = E+F, E>=0, F>=0.
+distFromItem(Z) :- down(A,B), item(C,D), E = C-A, F = D-B, Z = E+F, E>=0, F>=0.
+%
+%%after going up
+distFromItem(Z) :- up(A,B), item(C,D), E = A-C, F = B-D, Z = E+F, E>=0, F>=0.
+distFromItem(Z) :- up(A,B), item(C,D), E = C-A, F = B-D, Z = E+F, E>=0, F>=0.
+distFromItem(Z) :- up(A,B), item(C,D), E = A-C, F = D-B, Z = E+F, E>=0, F>=0.
+distFromItem(Z) :- up(A,B), item(C,D), E = C-A, F = D-B, Z = E+F, E>=0, F>=0.
+%
+%%after going right
+distFromItem(Z) :- right(A,B), item(C,D), E = A-C, F = B-D, Z = E+F, E>=0, F>=0.
+distFromItem(Z) :- right(A,B), item(C,D), E = C-A, F = B-D, Z = E+F, E>=0, F>=0.
+distFromItem(Z) :- right(A,B), item(C,D), E = A-C, F = D-B, Z = E+F, E>=0, F>=0.
+distFromItem(Z) :- right(A,B), item(C,D), E = C-A, F = D-B, Z = E+F, E>=0, F>=0.
+%
+%%after going left
+distFromItem(Z) :- left(A,B), item(C,D), E = A-C, F = B-D, Z = E+F, E>=0, F>=0.
+distFromItem(Z) :- left(A,B), item(C,D), E = C-A, F = B-D, Z = E+F, E>=0, F>=0.
+distFromItem(Z) :- left(A,B), item(C,D), E = A-C, F = D-B, Z = E+F, E>=0, F>=0.
+distFromItem(Z) :- left(A,B), item(C,D), E = C-A, F = D-B, Z = E+F, E>=0, F>=0.
+%
+chosenItem(X,Y) | notChosenItem(X,Y) :- itemPosition(X,Y).
+%
+%calculating the distance (in absolute value) of the chosen flower
+dist(D) :- hole(HX,HY), chosenItem(IX,IY), X = HX-IX, Y = HY-IY, D = X+Y, X>=0, Y>=0.
+dist(D) :- hole(HX,HY), chosenItem(IX,IY), X = IX-HX, Y = HY-IY, D = X+Y, X>=0, Y>=0.
+dist(D) :- hole(HX,HY), chosenItem(IX,IY), X = HX-IX, Y = IY-HY, D = X+Y, X>=0, Y>=0.
+dist(D) :- hole(HX,HY), chosenItem(IX,IY), X = IX-HX, Y = IY-HY, D = X+Y, X>=0, Y>=0.
+%
+:~dist(D). [1@D]
+% i want only one flower
+:- #count{X,Y:chosenItem(X,Y)} <> 1.
+%
+item(X,Y):-chosenItem(X,Y).
+%
+%
+:~distFromItem(D). [1@D]
