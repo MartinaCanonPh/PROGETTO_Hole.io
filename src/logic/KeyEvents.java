@@ -45,11 +45,11 @@ public class KeyEvents implements KeyListener {
         }
     	
     	////DLV MODE
-    	if(e.getKeyCode() == KeyEvent.VK_0)
-		{
-			Scene.AiModeOn=!Scene.AiModeOn;
-			System.out.println("AI attivata!");
-		}
+//    	if(e.getKeyCode() == KeyEvent.VK_0)
+//		{
+//			Scene.AiModeOn=!Scene.AiModeOn;
+//			System.out.println("AI: "+Scene.AiModeOn);
+//		}
          /////ESC
          if(e.getKeyCode()==KeyEvent.VK_ESCAPE)//&& Sound.intro.isRunning()==false)
         {
@@ -59,6 +59,10 @@ public class KeyEvents implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-
+//    	if(e.getKeyCode() == KeyEvent.VK_0)
+//		{
+//			Scene.AiModeOn=!Scene.AiModeOn;
+//			System.out.println("AI: "+Scene.AiModeOn);
+//		}
     }
 }

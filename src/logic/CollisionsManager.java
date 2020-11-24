@@ -42,7 +42,7 @@ public class CollisionsManager {
     	} 
     	if(Scene.items.isEmpty())
 		{    		
-			JOptionPane.showMessageDialog(null, "YOU WIN!"+"\n"+"Score: "+score);    			
+			JOptionPane.showMessageDialog(null, "YOUR SCORE!"+"\n"+"Score: "+score);    			
 			Scene.returnToMenu();
 		}
     }

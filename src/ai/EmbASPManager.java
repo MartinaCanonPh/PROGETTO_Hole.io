@@ -13,14 +13,19 @@ import it.unical.mat.embasp.platforms.desktop.DesktopHandler;
 import it.unical.mat.embasp.specializations.dlv.desktop.DLVDesktopService;
 import it.unical.mat.embasp.specializations.dlv2.desktop.DLV2DesktopService;
 import logic.HoleLogic.Direction;
+
+import java.awt.Rectangle;
+
 import directions.Down;
 import directions.Left;
 import directions.Right;
 import directions.Up;
+import graphic.Scene;
 
 public class EmbASPManager {
 	
-	private String encodingResource="encodings/holeMotion";	
+	private String encodingResource="encodings/holeMotion";
+	private String choose="encodings/chooseItem";
 	private Handler handler;
 	private InputProgram encoding = null;
 	private InputProgram facts = null;
@@ -75,9 +80,47 @@ public class EmbASPManager {
 			e.printStackTrace();
 		}
 	}
+	
+	private Item getChoice() {
+    	for(Rectangle r: Scene.items)
+    	{
+    		setFacts(new Item(r.x,r.y));
+    	}
+		handler.addProgram(facts);
+		encoding.addFilesPath(choose);
+		handler.addProgram(encoding);
+		
+		Output o = handler.startSync();
+		AnswerSets answers = (AnswerSets) o;
+		
+		for(AnswerSet a : answers.getAnswersets())
+		{
+			try {
+				for(Object obj : a.getAtoms())
+				{	
+					if(obj instanceof Item)
+					{
+						Item d = (Item) obj;
+						System.out.println("SCELTA ITEM: "+d);
+						return d;
+					}
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
 
 	private void setPrograms()
 	{	
+		try {
+			facts.addObjectInput(getChoice());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		handler.addProgram(facts);
 		encoding.addFilesPath(encodingResource);
 		handler.addProgram(encoding);		

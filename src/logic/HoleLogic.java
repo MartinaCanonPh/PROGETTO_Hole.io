@@ -171,10 +171,6 @@ public class HoleLogic{
     	{
     		aiManager.setFacts(new Brick(r.x,r.y));
     	}
-    	for(Rectangle r: Scene.items)
-    	{
-    		aiManager.setFacts(new Item(r.x,r.y));
-    	}
     	button=aiManager.getAnswerSets();
     	System.out.println("BUTTON BY DLV: "+button);
     	updatePosition();
@@ -187,6 +183,9 @@ public class HoleLogic{
 			DLVupdatePosition();
 		}
 		else
+		{
 			updatePosition();
+			//initAiManager();
+		}
 	}
 }

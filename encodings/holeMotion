@@ -43,19 +43,4 @@ distFromItem(Z) :- left(A,B), item(C,D), E = C-A, F = B-D, Z = E+F, E>=0, F>=0.
 distFromItem(Z) :- left(A,B), item(C,D), E = A-C, F = D-B, Z = E+F, E>=0, F>=0.
 distFromItem(Z) :- left(A,B), item(C,D), E = C-A, F = D-B, Z = E+F, E>=0, F>=0.
 %
-chosenItem(X,Y) | notChosenItem(X,Y) :- itemPosition(X,Y).
-%
-%calculating the distance (in absolute value) of the chosen flower
-dist(D) :- hole(HX,HY), chosenItem(IX,IY), X = HX-IX, Y = HY-IY, D = X+Y, X>=0, Y>=0.
-dist(D) :- hole(HX,HY), chosenItem(IX,IY), X = IX-HX, Y = HY-IY, D = X+Y, X>=0, Y>=0.
-dist(D) :- hole(HX,HY), chosenItem(IX,IY), X = HX-IX, Y = IY-HY, D = X+Y, X>=0, Y>=0.
-dist(D) :- hole(HX,HY), chosenItem(IX,IY), X = IX-HX, Y = IY-HY, D = X+Y, X>=0, Y>=0.
-%
-:~dist(D). [1@D]
-% i want only one flower
-:- #count{X,Y:chosenItem(X,Y)} <> 1.
-%
-item(X,Y):-chosenItem(X,Y).
-%
-%
 :~distFromItem(D). [1@D]
