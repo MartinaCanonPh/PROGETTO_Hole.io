@@ -62,15 +62,30 @@ public class HoleLogic{
     }
     
     boolean canMove(int x,int y) {
-    	rectangleHole=new Rectangle(x, y, Settings.CELL_SIZE+HoleLogic.grow,Settings.CELL_SIZE+HoleLogic.grow+40);
+    	rectangleHole=new Rectangle(x, y, getScaleX(),getScaleY());
     	for(Rectangle r: Scene.bricks) {
+    			// down -> alessia
+    		if( (getY()+getScaleY()) >= Settings.WINDOW_HEIGHT-30 )
+    				setY( getY() - ( (getY()+getScaleY()) - (Settings.WINDOW_HEIGHT-30) ) );
+    			// up -> davide
+    		else if( (getY()) <= 30 )
+				setY( getY()+(30-getY()) );
+    			//right -> Martina
+    		else if( (getX()+getScaleX()) >= Settings.WINDOW_WIDTH-30 )
+				setX( getX() - ( (getX()+getScaleX()) - (Settings.WINDOW_WIDTH-30) ) );
+    			// left -> Martina++;)
+    		else if( (getX()) <= 30 )
+				setX( getX()+(30-getX()) );
+    		
     		if(rectangleHole.intersects(r))
     			return false;
+    		
+			
     	}    	
     	return true;
     }
     
-    void setscaleX(int scalex) {
+    void setscaleX(int scaleX) {
     	this.scaleX = scaleX;
     }
     void setscaleY(int scaleY) {
@@ -132,6 +147,7 @@ public class HoleLogic{
         ImageIcon img = new ImageIcon(image);
         Settings.scaleIcon(img, getScaleX(), getScaleY(),grow);
         graphics.drawImage(img.getImage(),x,y,null);
+     
     }
 
     public void updatePosition() {

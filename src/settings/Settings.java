@@ -8,12 +8,12 @@ import javax.swing.ImageIcon;
 public class Settings {
 
 	public final static int WINDOW_WIDTH = 481;
-	public final static int WINDOW_HEIGHT = 518;
+	public final static int WINDOW_HEIGHT = 481;
 	public final static int CELL_SIZE = 30;
 	public final static int SQUARE = 28;
 	public final static int SIZE = 32;
-	public final static int SCALED_WIDTH = 250;
-	public final static int SCALED_HEIGHT = 90;
+	public final static int SCALED_WIDTH = 250;// per menù
+	public final static int SCALED_HEIGHT = 90;// per menù
 	public final static int CELLS = 15;
 	
 	public final static String cellImg=("assets"+File.separator+"imagesEditor"+File.separator+"cell.png");

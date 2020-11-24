@@ -14,21 +14,23 @@ public class CollisionsManager {
     private enum cmDirection{up,down,left,right,notLeft,notRight,notUp,notDown,up1,down1,left1,right1};
     private cmDirection current=cmDirection.right;
     private int score=0;
-   
+   int cont = 1;
     public CollisionsManager(ArrayList<HoleLogic> h){
 		this.h = h;
 	}
         
     public void growUp() {
-    	h.get(0).setscaleX(h.get(0).getScaleX()+20);
-    	h.get(0).setscaleY(h.get(0).getScaleY()+20);
-    	HoleLogic.grow+=5;
+    	HoleLogic.grow+=10;
+    	h.get(0).setscaleX(h.get(0).getScaleX()+HoleLogic.grow);
+    	h.get(0).setscaleY(h.get(0).getScaleY()+HoleLogic.grow);
+    	
+    	
     }
         
    
     public void eat(int [][]levelmap) {
     	 
-    	player = new Rectangle(h.get(0).getX(),h.get(0).getY(),Settings.CELL_SIZE+HoleLogic.grow+20,Settings.CELL_SIZE+HoleLogic.grow+50);
+    	player = new Rectangle(h.get(0).getX(),h.get(0).getY(),h.get(0).getScaleX(),h.get(0).getScaleY());
     	for(int i=0; i<Scene.items.size(); i++) {
     		if(player.intersects(Scene.items.get(i))) {
     			Sound.nomNom();
@@ -37,7 +39,13 @@ public class CollisionsManager {
 				levelmap[yyy/Settings.SIZE][xxx/Settings.SIZE]=1;
 				score+=100;
 				Scene.items.remove(Scene.items.get(i));
-				if((score/100) % 5 == 0) {growUp();}
+				 
+				if((score/100) % 5*cont == 0) 
+				{
+					growUp();
+					if(Scene.levelTwo)
+					cont+=2;
+				}
     		}
     	} 
     	if(Scene.items.isEmpty())

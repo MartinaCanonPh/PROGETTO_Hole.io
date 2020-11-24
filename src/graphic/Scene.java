@@ -104,7 +104,7 @@ public class Scene extends JPanel implements Runnable{
 				repaint();				
 				try {
 					if(AiModeOn)
-						Thread.sleep(0);
+						Thread.sleep(5);
 					else
 						Thread.sleep(50);
 				} catch (InterruptedException e) {
