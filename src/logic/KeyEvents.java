@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import graphic.Scene;
 import java.awt.event.KeyListener;
-import settings.Sound;
+//import settings.Sound;
 
 public class KeyEvents implements KeyListener {
     private ArrayList<HoleLogic> h;
@@ -44,14 +44,8 @@ public class KeyEvents implements KeyListener {
         	h.get(0).button=HoleLogic.Direction.down;
         }
     	
-    	////DLV MODE
-//    	if(e.getKeyCode() == KeyEvent.VK_0)
-//		{
-//			Scene.AiModeOn=!Scene.AiModeOn;
-//			System.out.println("AI: "+Scene.AiModeOn);
-//		}
          /////ESC
-         if(e.getKeyCode()==KeyEvent.VK_ESCAPE)//&& Sound.intro.isRunning()==false)
+         if(e.getKeyCode()==KeyEvent.VK_ESCAPE)
         {
         	Scene.returnToMenu();
          }
@@ -59,10 +53,5 @@ public class KeyEvents implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-//    	if(e.getKeyCode() == KeyEvent.VK_0)
-//		{
-//			Scene.AiModeOn=!Scene.AiModeOn;
-//			System.out.println("AI: "+Scene.AiModeOn);
-//		}
     }
 }

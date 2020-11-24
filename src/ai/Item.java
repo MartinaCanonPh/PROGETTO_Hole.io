@@ -28,7 +28,7 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return "Flower [x=" + x + ", y=" + y + "]";
+		return "Item [x=" + x + ", y=" + y + "]";
 	}
 	
 }

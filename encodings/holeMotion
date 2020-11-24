@@ -20,27 +20,27 @@ posPrec(X,Y) :- hole(X,B), down(X,B), Y=B-1.
 :- posPrec(X,Y), down(X,Y).
 %
 %%after going down
-distFromItem(Z) :- down(A,B), item(C,D), E = A-C, F = B-D, Z = E+F, E>=0, F>=0.
-distFromItem(Z) :- down(A,B), item(C,D), E = C-A, F = B-D, Z = E+F, E>=0, F>=0.
-distFromItem(Z) :- down(A,B), item(C,D), E = A-C, F = D-B, Z = E+F, E>=0, F>=0.
-distFromItem(Z) :- down(A,B), item(C,D), E = C-A, F = D-B, Z = E+F, E>=0, F>=0.
+distFromItem(D) :- down(HX,HY), item(IX,IY), DIFFX = HX-IX, DIFFY = HY-IY, D = DIFFX+DIFFY, DIFFX>=0, DIFFY>=0.
+distFromItem(D) :- down(HX,HY), item(IX,IY), DIFFX = IX-HX, DIFFY = HY-IY, D = DIFFX+DIFFY, DIFFX>=0, DIFFY>=0.
+distFromItem(D) :- down(HX,HY), item(IX,IY), DIFFX = HX-IX, DIFFY = IY-HY, D = DIFFX+DIFFY, DIFFX>=0, DIFFY>=0.
+distFromItem(D) :- down(HX,HY), item(IX,IY), DIFFX = IX-HX, DIFFY = IY-HY, D = DIFFX+DIFFY, DIFFX>=0, DIFFY>=0.
 %
 %%after going up
-distFromItem(Z) :- up(A,B), item(C,D), E = A-C, F = B-D, Z = E+F, E>=0, F>=0.
-distFromItem(Z) :- up(A,B), item(C,D), E = C-A, F = B-D, Z = E+F, E>=0, F>=0.
-distFromItem(Z) :- up(A,B), item(C,D), E = A-C, F = D-B, Z = E+F, E>=0, F>=0.
-distFromItem(Z) :- up(A,B), item(C,D), E = C-A, F = D-B, Z = E+F, E>=0, F>=0.
+distFromItem(D) :- up(HX,HY), item(IX,IY), DIFFX = HX-IX, DIFFY = HY-IY, D = DIFFX+DIFFY, DIFFX>=0, DIFFY>=0.
+distFromItem(D) :- up(HX,HY), item(IX,IY), DIFFX = IX-HX, DIFFY = HY-IY, D = DIFFX+DIFFY, DIFFX>=0, DIFFY>=0.
+distFromItem(D) :- up(HX,HY), item(IX,IY), DIFFX = HX-IX, DIFFY = IY-HY, D = DIFFX+DIFFY, DIFFX>=0, DIFFY>=0.
+distFromItem(D) :- up(HX,HY), item(IX,IY), DIFFX = IX-HX, DIFFY = IY-HY, D = DIFFX+DIFFY, DIFFX>=0, DIFFY>=0.
 %
 %%after going right
-distFromItem(Z) :- right(A,B), item(C,D), E = A-C, F = B-D, Z = E+F, E>=0, F>=0.
-distFromItem(Z) :- right(A,B), item(C,D), E = C-A, F = B-D, Z = E+F, E>=0, F>=0.
-distFromItem(Z) :- right(A,B), item(C,D), E = A-C, F = D-B, Z = E+F, E>=0, F>=0.
-distFromItem(Z) :- right(A,B), item(C,D), E = C-A, F = D-B, Z = E+F, E>=0, F>=0.
+distFromItem(D) :- right(HX,HY), item(IX,IY), DIFFX = HX-IX, DIFFY = HY-IY, D = DIFFX+DIFFY, DIFFX>=0, DIFFY>=0.
+distFromItem(D) :- right(HX,HY), item(IX,IY), DIFFX = IX-HX, DIFFY = HY-IY, D = DIFFX+DIFFY, DIFFX>=0, DIFFY>=0.
+distFromItem(D) :- right(HX,HY), item(IX,IY), DIFFX = HX-IX, DIFFY = IY-HY, D = DIFFX+DIFFY, DIFFX>=0, DIFFY>=0.
+distFromItem(D) :- right(HX,HY), item(IX,IY), DIFFX = IX-HX, DIFFY = IY-HY, D = DIFFX+DIFFY, DIFFX>=0, DIFFY>=0.
 %
 %%after going left
-distFromItem(Z) :- left(A,B), item(C,D), E = A-C, F = B-D, Z = E+F, E>=0, F>=0.
-distFromItem(Z) :- left(A,B), item(C,D), E = C-A, F = B-D, Z = E+F, E>=0, F>=0.
-distFromItem(Z) :- left(A,B), item(C,D), E = A-C, F = D-B, Z = E+F, E>=0, F>=0.
-distFromItem(Z) :- left(A,B), item(C,D), E = C-A, F = D-B, Z = E+F, E>=0, F>=0.
+distFromItem(D) :- left(HX,HY), item(IX,IY), DIFFX = HX-IX, DIFFY = HY-IY, D = DIFFX+DIFFY, DIFFX>=0, DIFFY>=0.
+distFromItem(D) :- left(HX,HY), item(IX,IY), DIFFX = IX-HX, DIFFY = HY-IY, D = DIFFX+DIFFY, DIFFX>=0, DIFFY>=0.
+distFromItem(D) :- left(HX,HY), item(IX,IY), DIFFX = HX-IX, DIFFY = IY-HY, D = DIFFX+DIFFY, DIFFX>=0, DIFFY>=0.
+distFromItem(D) :- left(HX,HY), item(IX,IY), DIFFX = IX-HX, DIFFY = IY-HY, D = DIFFX+DIFFY, DIFFX>=0, DIFFY>=0.
 %
 :~distFromItem(D). [1@D]

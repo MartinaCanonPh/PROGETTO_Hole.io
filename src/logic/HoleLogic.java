@@ -64,16 +64,16 @@ public class HoleLogic{
     boolean canMove(int x,int y) {
     	rectangleHole=new Rectangle(x, y, getScaleX(),getScaleY());
     	for(Rectangle r: Scene.bricks) {
-    			// down -> alessia
+    			// down 
     		if( (getY()+getScaleY()) >= Settings.WINDOW_HEIGHT-Settings.CELL_SIZE )
     				setY( getY() - ( (getY()+getScaleY()) - (Settings.WINDOW_HEIGHT-Settings.CELL_SIZE) ) );
-    			// up -> davide
+    			// up 
     		else if( (getY()) <= Settings.CELL_SIZE )
 				setY( getY()+(Settings.CELL_SIZE-getY()) );
-    			//right -> Martina
+    			//right 
     		else if( (getX()+getScaleX()) >= Settings.WINDOW_WIDTH-Settings.CELL_SIZE )
 				setX( getX() - ( (getX()+getScaleX()) - (Settings.WINDOW_WIDTH-Settings.CELL_SIZE) ) );
-    			// left -> Martina++;)
+    			// left 
     		else if( (getX()) <= Settings.CELL_SIZE )
 				setX( getX()+(Settings.CELL_SIZE-getX()) );
     		
@@ -193,15 +193,9 @@ public class HoleLogic{
     }
 
 	public void move() {
-		// TODO Auto-generated method stub
 		if(Scene.AiModeOn)
-		{
 			DLVupdatePosition();
-		}
 		else
-		{
 			updatePosition();
-			//initAiManager();
-		}
 	}
 }

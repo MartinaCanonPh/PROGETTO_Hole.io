@@ -2,7 +2,7 @@ package logic;
 
 import java.awt.Rectangle;
 import java.util.ArrayList;
-import java.util.Random;
+//import java.util.Random;
 import javax.swing.JOptionPane;
 import settings.*;
 import graphic.Scene;
@@ -11,10 +11,10 @@ public class CollisionsManager {
 	private Rectangle player;
 
     private ArrayList<HoleLogic> h;
-    private enum cmDirection{up,down,left,right,notLeft,notRight,notUp,notDown,up1,down1,left1,right1};
-    private cmDirection current=cmDirection.right;
-    private int score=0;
-    private int cont = 1;
+    //private enum cmDirection{up,down,left,right,notLeft,notRight,notUp,notDown,up1,down1,left1,right1};
+    //private cmDirection current=cmDirection.right;
+    private int score=0; // hole's
+    private int cont = 1;//for grow up hole
     public CollisionsManager(ArrayList<HoleLogic> h){
 		this.h = h;
 	}
