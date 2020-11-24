@@ -65,17 +65,17 @@ public class HoleLogic{
     	rectangleHole=new Rectangle(x, y, getScaleX(),getScaleY());
     	for(Rectangle r: Scene.bricks) {
     			// down -> alessia
-    		if( (getY()+getScaleY()) >= Settings.WINDOW_HEIGHT-30 )
-    				setY( getY() - ( (getY()+getScaleY()) - (Settings.WINDOW_HEIGHT-30) ) );
+    		if( (getY()+getScaleY()) >= Settings.WINDOW_HEIGHT-Settings.CELL_SIZE )
+    				setY( getY() - ( (getY()+getScaleY()) - (Settings.WINDOW_HEIGHT-Settings.CELL_SIZE) ) );
     			// up -> davide
-    		else if( (getY()) <= 30 )
-				setY( getY()+(30-getY()) );
+    		else if( (getY()) <= Settings.CELL_SIZE )
+				setY( getY()+(Settings.CELL_SIZE-getY()) );
     			//right -> Martina
-    		else if( (getX()+getScaleX()) >= Settings.WINDOW_WIDTH-30 )
-				setX( getX() - ( (getX()+getScaleX()) - (Settings.WINDOW_WIDTH-30) ) );
+    		else if( (getX()+getScaleX()) >= Settings.WINDOW_WIDTH-Settings.CELL_SIZE )
+				setX( getX() - ( (getX()+getScaleX()) - (Settings.WINDOW_WIDTH-Settings.CELL_SIZE) ) );
     			// left -> Martina++;)
-    		else if( (getX()) <= 30 )
-				setX( getX()+(30-getX()) );
+    		else if( (getX()) <= Settings.CELL_SIZE )
+				setX( getX()+(Settings.CELL_SIZE-getX()) );
     		
     		if(rectangleHole.intersects(r))
     			return false;

@@ -50,7 +50,10 @@ public class CollisionsManager {
     	} 
     	if(Scene.items.isEmpty())
 		{    		
-			JOptionPane.showMessageDialog(null, "YOUR SCORE!"+"\n"+"Score: "+score);    			
+			JOptionPane.showMessageDialog(null, "YOUR SCORE!"+"\n"+"Score: "+score);    	
+			score = 0;
+			cont = 1;
+			HoleLogic.grow = 0;
 			Scene.returnToMenu();
 		}
     }
