@@ -8,10 +8,10 @@ down(X, Y+4) | up(X, Y-4)| left(X-4, Y) | right(X+4, Y)  :- hole(X,Y).
 :-brick(X,Y), right(X,Y).
 %
 %rules and constraints to avoid the loop checking previous positions
-posPrec(A,B) :- hole(X,B), right(X,B), A = X-1.
-posPrec(A,B) :- hole(X,B), left(X,B), A = X+1.
-posPrec(X,Y) :- hole(X,B), up(X,B), Y = B+1.
-posPrec(X,Y) :- hole(X,B), down(X,B), Y = B-1.
+posPrec(A,B) :- hole(X,B), right(X,B), A=X-1.
+posPrec(A,B) :- hole(X,B), left(X,B), A=X+1.
+posPrec(X,Y) :- hole(X,B), up(X,B), Y=B+1.
+posPrec(X,Y) :- hole(X,B), down(X,B), Y=B-1.
 %
 %
 :- posPrec(X,Y), right(X,Y).
