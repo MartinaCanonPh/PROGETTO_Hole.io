@@ -2,6 +2,7 @@ package ai;
 import it.unical.mat.embasp.languages.Id;
 import it.unical.mat.embasp.languages.Param;
 
+// ciao
 @Id("hole")
 public class Hole {
 	
