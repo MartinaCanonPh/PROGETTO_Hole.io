@@ -14,7 +14,7 @@ public class CollisionsManager {
     private enum cmDirection{up,down,left,right,notLeft,notRight,notUp,notDown,up1,down1,left1,right1};
     private cmDirection current=cmDirection.right;
     private int score=0;
-   int cont = 1;
+    private int cont = 1;
     public CollisionsManager(ArrayList<HoleLogic> h){
 		this.h = h;
 	}
@@ -44,13 +44,15 @@ public class CollisionsManager {
 				{
 					growUp();
 					if(Scene.levelTwo)
-					cont+=2;
+						cont+=2;
 				}
     		}
     	} 
     	if(Scene.items.isEmpty())
 		{    		
-			JOptionPane.showMessageDialog(null, "YOUR SCORE!"+"\n"+"Score: "+score);    			
+			JOptionPane.showMessageDialog(null, "YOUR SCORE!"+"\n"+"Score: "+score);
+			score=0;
+			cont=1;
 			Scene.returnToMenu();
 		}
     }
